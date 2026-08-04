@@ -63,7 +63,11 @@
   .len input{width:100%;border:0;background:transparent;outline:none;font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--ink);text-align:center;padding:11px 40px 11px 12px;font-variant-numeric:tabular-nums;}
   .len .unit{position:absolute;right:14px;font-size:14px;color:var(--muted);font-weight:600;pointer-events:none;}
   .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
-  .preset{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer;font-variant-numeric:tabular-nums;transition:border-color .12s,background .12s,color .12s;}
+  .preset{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:13px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;-webkit-text-fill-color:var(--ink);transition:border-color .12s,background .12s,color .12s;}
+  .preset.on{-webkit-text-fill-color:#fff;}
+  /* Страховка от авто-ссылок телефонов на мобильных (число «1 м» → синяя tel-ссылка):
+     даже если браузер обернёт цифры, показываем как обычный текст. */
+  a[href^="tel:"]{color:inherit !important;-webkit-text-fill-color:inherit !important;text-decoration:none !important;pointer-events:none;}
   .preset:hover{border-color:var(--green);}
   .preset.on{background:var(--green);color:#fff;border-color:var(--green);}
   .roundnote{font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5;min-height:0;}
