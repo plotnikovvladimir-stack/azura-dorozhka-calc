@@ -290,15 +290,16 @@ COLORS.forEach(c=>{const b=document.createElement('button');b.className='sw';b.d
 /* ---- Корзина: мост iframe → родитель (Tilda) через postMessage ---- */
 function inIframe(){try{return window.self!==window.top;}catch(e){return true;}}
 function cartProduct(){
-  const o=order();
-  const factLen=num(o.n*CFG.sectionLen/1000);
-  const size=o.n+' секц. · '+factLen+' м';
-  const name='Садовая дорожка АЗУРА — '+colorName()+', '+factLen+' м';
+  // Единица товара в корзине = СЕКЦИЯ. quantity = число секций, price = цена секции.
+  // Так Tilda нативно показывает «N шт × цена» — количество и цвет видны явно.
+  const n=sections();
+  const factLen=num(n*CFG.sectionLen/1000);
+  const name='Садовая дорожка АЗУРА — '+colorName();
   return {
-    uid:'azura-'+color+'-'+o.n, id:'azura-'+color+'-'+o.n, name:name,
-    price:o.price, quantity:1, img:imgSrc(color,0), url:CFG.productUrl||location.href,
-    option:[{option:'Цвет',variant:colorName()},{option:'Длина',variant:factLen+' м'},{option:'Секций',variant:o.n+' шт'}],
-    descr:o.br
+    uid:'azura-'+color, id:'azura-'+color, name:name,
+    price:priceEach(), quantity:n, img:imgSrc(color,0), url:CFG.productUrl||location.href,
+    option:[{option:'Цвет',variant:colorName()},{option:'Секция',variant:'500×500×28 мм'}],
+    descr:'Длина дорожки '+factLen+' м = '+n+' секц.'+(color==='beige'?' · бежевый +15%':'')
   };
 }
 function addToCart(){
@@ -310,7 +311,7 @@ function addToCart(){
   } else if(inIframe()){
     window.parent.postMessage({type:'azura:addToCart',product:p},'*');
   } else {
-    alert('Заказ (демо, вне Tilda):\n'+p.name+'\nЦена: '+fmt(p.price)+CFG.currency+'\nСостав: '+p.descr);
+    alert('Заказ (демо, вне Tilda):\n'+p.name+'\n'+p.quantity+' шт × '+fmt(p.price)+CFG.currency+' = '+fmt(p.price*p.quantity)+CFG.currency+'\n'+p.descr);
   }
 }
 document.getElementById('cartBtn').onclick=addToCart;
