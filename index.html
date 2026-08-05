@@ -58,7 +58,8 @@
   .len .step:hover{border-color:var(--green);color:var(--green);}
   .len .field{flex:1 1 auto;position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .12s;}
   .len .field:focus-within{border-color:var(--green);}
-  .len input{width:100%;border:0;background:transparent;outline:none;font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--ink);text-align:center;padding:11px 46px 11px 16px;font-variant-numeric:tabular-nums;}
+  /* симметричные отступы (левый = правый резерв под «м») — цифра ровно по центру поля, под свотчами */
+  .len input{width:100%;border:0;background:transparent;outline:none;font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--ink);text-align:center;padding:11px 44px;font-variant-numeric:tabular-nums;}
   .len .unit{position:absolute;right:16px;font-family:var(--font-head);font-size:19px;color:var(--ink);font-weight:700;pointer-events:none;}
   .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;margin-left:210px;}
   .preset{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:13px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;-webkit-text-fill-color:var(--ink);transition:border-color .12s,background .12s,color .12s;}
