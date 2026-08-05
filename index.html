@@ -193,7 +193,8 @@ const CFG={
   minLen:          0.5,    // м — минимум (1 секция)
   maxLen:          50,     // м — максимум ввода
   defaultLen:      3,      // м — стартовая длина
-  presets:         [1,2,3,5,10], // быстрые длины, м
+  showPresets:     false,  // показывать ряд кнопок-пресетов длины (true/false)
+  presets:         [1,2,3,5,10], // быстрые длины, м (если showPresets:true)
   autoplayMs:      3800,   // автолистание галереи, мс (0 = выкл)
   configAnchor:    '#configuration', // якорь блока грядок/конфигураций ниже на странице Tilda
   pdfUrl:          'https://disk.yandex.ru/i/Bw6LAVdx2yWVbw', // PDF-инструкция по укладке (Яндекс.Диск, новая вкладка)
@@ -266,7 +267,9 @@ lenInput.addEventListener('keydown',e=>{if(e.key==='Enter'){lenInput.blur();}});
 document.getElementById('minus').onclick=()=>setLen(lenM-CFG.sectionLen/1000,false);
 document.getElementById('plus').onclick=()=>setLen(lenM+CFG.sectionLen/1000,false);
 const presetsBox=document.getElementById('presets');
-CFG.presets.forEach(p=>{const b=document.createElement('button');b.className='preset';b.dataset.l=p;b.textContent=num(p)+' м';b.onclick=()=>setLen(p,false);presetsBox.appendChild(b);});
+if(CFG.showPresets){
+  CFG.presets.forEach(p=>{const b=document.createElement('button');b.className='preset';b.dataset.l=p;b.textContent=num(p)+' м';b.onclick=()=>setLen(p,false);presetsBox.appendChild(b);});
+} else { presetsBox.style.display='none'; }
 /* ---- Галерея ---- */
 const dotsBox=document.getElementById('dots');
 FRAMES.forEach((f,i)=>{const d=document.createElement('button');d.className='dot';d.onclick=()=>{show(i);restart();};dotsBox.appendChild(d);});
