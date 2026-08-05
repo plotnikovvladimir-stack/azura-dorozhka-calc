@@ -41,7 +41,7 @@
   .info{min-width:0;}
   .price-val{font-family:var(--font-head);font-size:29px;font-weight:700;color:var(--green);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.01em;}
   .price-break{font-size:13.5px;color:var(--muted);margin:4px 0 4px;line-height:1.5;overflow-wrap:anywhere;}
-  .cart{width:100%;border:0;background:var(--btn);color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:16px;border-radius:10px;cursor:pointer;transition:background .15s;margin-top:20px;}
+  .cart{width:100%;border:0;background:var(--btn);color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:16px;border-radius:10px;cursor:pointer;transition:background .15s;margin-top:22px;}
   .cart:hover{background:var(--btn-d);}
   .cart:active{transform:scale(.995);}
   .cart:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
@@ -74,10 +74,11 @@
   .m .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;}
   .m .v{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;font-variant-numeric:tabular-nums;}
   .m.acc{background:#E4EFE9;} .m.acc .v{color:var(--green);}
-  .aux{font-size:13.5px;color:var(--muted);margin:2px 0 0;line-height:1.5;}
-  .hint{font-size:13.5px;color:var(--muted);margin:14px 0 0;line-height:1.5;}
-  /* ссылки: на грядки + лаконичная инструкция PDF */
-  .links{display:flex;flex-direction:column;gap:10px;margin:16px 0 0;}
+  /* интервалы по смыслу: [метрики+площадь] · [инструкция+сноска] · [кнопка] */
+  .aux{font-size:13.5px;color:var(--muted);margin:6px 0 0;line-height:1.5;}
+  .hint{font-size:13px;color:var(--muted);margin:9px 0 0;line-height:1.5;}
+  /* инструкция PDF (текстовая ссылка) */
+  .links{display:flex;flex-direction:column;gap:10px;margin:20px 0 0;}
   .doc-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color .15s;align-self:flex-start;}
   .doc-link svg{width:17px;height:17px;flex:0 0 auto;color:var(--green);}
   .doc-link span{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
@@ -127,7 +128,6 @@
   <div class="info">
     <div class="price-val" id="pVal">—</div>
     <div class="price-break" id="pBreak">—</div>
-    <button class="cart" id="cartBtn">Добавить в корзину</button>
     <div class="row">
       <span class="lab">Цвета</span>
       <div class="opts sws" id="sw"></div>
@@ -148,10 +148,11 @@
       <div class="m acc"><div class="k">Секций</div><div class="v" id="mSec">—</div></div>
     </div>
     <div class="aux" id="aux">—</div>
-    <p class="hint">Длина дорожки не ограничена — наборы стыкуются из секций 500×500 мм. Нужен особый размер или раскладка — <b>обратитесь к менеджеру компании</b>.</p>
     <div class="links">
       <a class="doc-link" id="actPdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M18 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span>Инструкция по укладке (PDF)</span></a>
     </div>
+    <p class="hint">Длина дорожки не ограничена — наборы стыкуются из секций 500×500 мм.</p>
+    <button class="cart" id="cartBtn">Добавить в корзину</button>
   </div>
   <div class="feat">
   <div class="feat-grid">
