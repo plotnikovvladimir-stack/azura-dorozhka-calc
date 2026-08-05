@@ -49,11 +49,11 @@
      (коричневый свотч и кнопка «−» начинаются с одной вертикали) */
   .row{display:flex;align-items:center;gap:18px;margin:24px 0 0;}
   .lab{font-size:13px;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;font-weight:700;font-family:var(--font-head);flex:0 0 192px;white-space:nowrap;}
-  .opts.sws{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start;}
+  .opts.sws{display:flex;flex-wrap:wrap;gap:10px;flex:1 1 auto;justify-content:center;}
   .sw{width:32px;height:32px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0;transition:box-shadow .12s;}
   .sw.on{box-shadow:0 0 0 2px var(--green);}
   /* ---- Ввод длины ---- */
-  .len{display:flex;align-items:stretch;gap:8px;flex:0 1 300px;min-width:0;}
+  .len{display:flex;align-items:stretch;gap:8px;flex:1 1 auto;min-width:0;}
   .len .step{width:46px;flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:22px;line-height:1;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s;}
   .len .step:hover{border-color:var(--green);color:var(--green);}
   .len .field{flex:1 1 auto;position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .12s;}
@@ -68,9 +68,9 @@
   .preset:hover{border-color:var(--green);}
   .preset.on{background:var(--green);color:#fff;border-color:var(--green);}
   .roundnote{font-size:12.5px;color:var(--muted);margin:10px 0 0 210px;line-height:1.5;}
-  /* ---- Метрики ---- */
-  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 12px;}
-  .m{background:var(--surf);border-radius:12px;padding:12px 8px;text-align:center;}
+  /* ---- Метрики: единый блок сплошной заливкой, без зазоров-делителей ---- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:20px 0 12px;background:var(--surf);border-radius:12px;overflow:hidden;}
+  .m{background:transparent;padding:14px 8px;text-align:center;}
   .m .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;}
   .m .v{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;font-variant-numeric:tabular-nums;}
   .m.acc{background:#E4EFE9;} .m.acc .v{color:var(--green);}
