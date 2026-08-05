@@ -45,15 +45,15 @@
   .cart:hover{background:var(--btn-d);}
   .cart:active{transform:scale(.995);}
   .cart:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
-  /* строки «Цвета» / «Длина дорожки»: подпись в колонке фикс. ширины, контрол сразу после неё
-     (коричневый свотч и кнопка «−» начинаются с одной вертикали) */
-  .row{display:flex;align-items:center;gap:18px;margin:24px 0 0;}
-  .lab{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;flex:0 0 192px;white-space:nowrap;}
-  .opts.sws{display:flex;flex-wrap:wrap;gap:10px;flex:1 1 auto;justify-content:center;}
+  /* строки «Цвета» / «Длина дорожки» — та же 4-колоночная сетка, что и метрики ниже:
+     подпись над колонкой «Длина», контрол над «Ширина»+«Толщина» (2-3), 4-я колонка пустая */
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:center;margin:22px 0 0;}
+  .lab{grid-column:1;font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;line-height:1.25;}
+  .opts.sws{grid-column:2 / 4;display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start;}
   .sw{width:32px;height:32px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0;transition:box-shadow .12s;}
   .sw.on{box-shadow:0 0 0 2px var(--green);}
   /* ---- Ввод длины ---- */
-  .len{display:flex;align-items:stretch;gap:8px;flex:1 1 auto;min-width:0;}
+  .len{grid-column:2 / 4;display:flex;align-items:stretch;gap:8px;min-width:0;}
   .len .step{width:46px;flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:22px;line-height:1;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s;}
   .len .step:hover{border-color:var(--green);color:var(--green);}
   .len .field{flex:1 1 auto;position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .12s;}
@@ -95,11 +95,11 @@
   @media(max-width:900px){
     .card{grid-template-columns:1fr;gap:18px;align-items:start;}
     .stage{aspect-ratio:4/3;max-height:56vh;}
-    /* строки «Цвета»/«Длина» — подпись над контролом */
-    .row{flex-direction:column;align-items:stretch;gap:8px;margin:20px 0 0;}
-    .lab{flex-basis:auto;}
-    .opts.sws{justify-content:flex-start;}
-    .len{flex-basis:auto;width:100%;}
+    /* строки «Цвета»/«Длина» — подпись над контролом (сетка сбрасывается во флекс-столбик) */
+    .row{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:20px 0 0;}
+    .lab{grid-column:auto;}
+    .opts.sws{grid-column:auto;justify-content:flex-start;}
+    .len{grid-column:auto;width:100%;}
     .presets{margin-left:0;}
     .price-val{font-size:26px;}
     .stage img{padding:14px 46px;}
