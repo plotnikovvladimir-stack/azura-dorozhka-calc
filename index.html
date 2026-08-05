@@ -67,7 +67,6 @@
   a[href^="tel:"]{color:inherit !important;-webkit-text-fill-color:inherit !important;text-decoration:none !important;pointer-events:none;}
   .preset:hover{border-color:var(--green);}
   .preset.on{background:var(--green);color:#fff;border-color:var(--green);}
-  .roundnote{font-size:12.5px;color:var(--muted);margin:10px 0 0 210px;line-height:1.5;}
   /* ---- Метрики: единый блок сплошной заливкой, без зазоров-делителей ---- */
   .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:20px 0 12px;background:var(--surf);border-radius:12px;overflow:hidden;}
   .m{background:transparent;padding:14px 8px;text-align:center;}
@@ -104,7 +103,6 @@
     .opts.sws{justify-content:flex-start;}
     .len{flex-basis:auto;width:100%;}
     .presets{margin-left:0;}
-    .roundnote{margin-left:0;}
     .price-val{font-size:38px;}
     .stage img{padding:14px 46px;}
     .nav{width:34px;height:34px;} .nav.prev{left:6px;} .nav.next{right:6px;}
@@ -146,7 +144,6 @@
       </div>
     </div>
     <div class="presets" id="presets"></div>
-    <div class="roundnote" id="roundnote"></div>
     <div class="metrics">
       <div class="m"><div class="k">Длина</div><div class="v" id="mLen">—</div></div>
       <div class="m"><div class="k">Ширина</div><div class="v" id="mWid">—</div></div>
@@ -241,12 +238,6 @@ function calc(){
   document.getElementById('mThk').textContent=CFG.thickness+' мм';
   document.getElementById('mSec').textContent=n+' шт';
   document.getElementById('aux').textContent='Площадь покрытия ≈ '+num(area)+' м² · вес ~'+num(weight)+' кг';
-  // подсказка про округление вверх
-  const rn=document.getElementById('roundnote');
-  const diff=Math.abs(factLen-lenM);
-  rn.textContent = diff>0.001
-    ? 'Округлили вверх до целого числа секций: '+n+' × 0,5 м = '+num(factLen)+' м.'
-    : n+' секций × 0,5 м = '+num(factLen)+' м.';
   // активный пресет
   document.querySelectorAll('#presets .preset').forEach(el=>el.classList.toggle('on',parseFloat(el.dataset.l)===lenM));
   reportHeight();
