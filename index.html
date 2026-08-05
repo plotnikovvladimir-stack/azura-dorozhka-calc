@@ -39,52 +39,50 @@
   /* ---- Правая колонка ---- */
   .col{display:flex;flex-direction:column;min-width:0;}
   .info{min-width:0;}
-  .price-val{font-family:var(--font-head);font-size:29px;font-weight:700;color:var(--green);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.01em;}
-  .price-break{font-size:13.5px;color:var(--muted);margin:4px 0 4px;line-height:1.5;overflow-wrap:anywhere;}
-  .docs{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:14px 0 0;}
-  .docs-lb{font-size:12.5px;line-height:1;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
-  .docs-row{display:flex;gap:10px;}
-  .doc-ic{width:32px;height:32px;border-radius:9px;background:#E4EFE9;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s;}
-  .doc-ic:hover{background:var(--green);transform:translateY(-1px);}
-  .doc-ic svg{width:17px;height:17px;display:block;fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s;}
-  .doc-ic:hover svg{stroke:#fff;}
-  .doc-ic .ic-tools{display:none;fill:var(--green);stroke:none;}
-  .doc-ic:hover .ic-tools{fill:#fff;}
-  .lab{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:14px 0 8px;font-weight:600;}
-  .opts.sws{display:flex;flex-wrap:wrap;gap:10px;}
+  .price-val{font-family:var(--font-head);font-size:44px;font-weight:700;color:var(--green);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.005em;}
+  .price-break{font-size:14px;color:var(--muted);margin:8px 0 0;line-height:1.5;overflow-wrap:anywhere;}
+  .cart{width:100%;border:0;background:var(--btn);color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:17px;border-radius:12px;cursor:pointer;transition:background .15s;margin-top:20px;}
+  .cart:hover{background:var(--btn-d);}
+  .cart:active{transform:scale(.995);}
+  .cart:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+  /* строки «Цвета» / «Длина дорожки»: подпись слева, контрол справа */
+  .row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:24px 0 0;}
+  .lab{font-size:13px;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;font-weight:700;font-family:var(--font-head);flex:0 0 auto;}
+  .opts.sws{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;}
   .sw{width:32px;height:32px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0;transition:box-shadow .12s;}
   .sw.on{box-shadow:0 0 0 2px var(--green);}
   /* ---- Ввод длины ---- */
-  .len{display:flex;align-items:stretch;gap:8px;}
-  .len .step{width:44px;flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:22px;line-height:1;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s;}
+  .len{display:flex;align-items:stretch;gap:8px;flex:0 0 auto;width:260px;}
+  .len .step{width:46px;flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:22px;line-height:1;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s;}
   .len .step:hover{border-color:var(--green);color:var(--green);}
   .len .field{flex:1 1 auto;position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .12s;}
   .len .field:focus-within{border-color:var(--green);}
   .len input{width:100%;border:0;background:transparent;outline:none;font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--ink);text-align:center;padding:11px 40px 11px 12px;font-variant-numeric:tabular-nums;}
   .len .unit{position:absolute;right:14px;font-size:14px;color:var(--muted);font-weight:600;pointer-events:none;}
-  .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;justify-content:flex-end;}
   .preset{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:13px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;-webkit-text-fill-color:var(--ink);transition:border-color .12s,background .12s,color .12s;}
   .preset.on{-webkit-text-fill-color:#fff;}
-  /* Страховка от авто-ссылок телефонов на мобильных (число «1 м» → синяя tel-ссылка):
-     даже если браузер обернёт цифры, показываем как обычный текст. */
+  /* Страховка от авто-ссылок телефонов на мобильных (число «1 м» → синяя tel-ссылка). */
   a[href^="tel:"]{color:inherit !important;-webkit-text-fill-color:inherit !important;text-decoration:none !important;pointer-events:none;}
   .preset:hover{border-color:var(--green);}
   .preset.on{background:var(--green);color:#fff;border-color:var(--green);}
-  .roundnote{font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5;min-height:0;}
+  .roundnote{font-size:12.5px;color:var(--muted);margin:10px 0 0;line-height:1.5;text-align:right;}
   /* ---- Метрики ---- */
-  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0 12px;}
-  .m{background:var(--surf);border-radius:10px;padding:10px 8px;text-align:center;}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 12px;}
+  .m{background:var(--surf);border-radius:12px;padding:12px 8px;text-align:center;}
   .m .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;}
   .m .v{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;font-variant-numeric:tabular-nums;}
   .m.acc{background:#E4EFE9;} .m.acc .v{color:var(--green);}
   .aux{font-size:13.5px;color:var(--muted);margin:2px 0 0;line-height:1.5;}
-  .hint{font-size:13.5px;color:var(--muted);margin:12px 0 0;line-height:1.5;}
-  .cfg-link{display:inline-block;font-size:13.5px;color:var(--green);text-decoration:underline dashed;text-underline-offset:3px;margin:12px 0 0;cursor:pointer;}
+  .hint{font-size:13.5px;color:var(--muted);margin:14px 0 0;line-height:1.5;}
+  /* ссылки: на грядки + лаконичная инструкция PDF */
+  .links{display:flex;flex-direction:column;gap:10px;margin:16px 0 0;}
+  .cfg-link{display:inline;font-size:13.5px;color:var(--green);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;cursor:pointer;line-height:1.55;}
   .cfg-link:hover{color:var(--green-d);}
-  .cart{width:100%;border:0;background:var(--btn);color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:16px;border-radius:10px;cursor:pointer;transition:background .15s;margin-top:20px;}
-  .cart:hover{background:var(--btn-d);}
-  .cart:active{transform:scale(.995);}
-  .cart:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+  .doc-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color .15s;align-self:flex-start;}
+  .doc-link svg{width:17px;height:17px;flex:0 0 auto;color:var(--green);}
+  .doc-link span{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
+  .doc-link:hover{color:var(--green);}
   /* ---- Инфографика ---- */
   .feat{margin-top:22px;background:var(--surf);border-radius:16px;padding:18px 22px;}
   .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;}
@@ -93,17 +91,19 @@
   .feat-ic svg{width:21px;height:21px;display:block;}
   .feat-tx h4{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin:2px 0 4px;color:var(--ink);}
   .feat-tx p{font-size:13px;color:var(--muted);margin:0;line-height:1.45;}
+  /* вертикальный разделитель между галереей и правой колонкой (десктоп) */
+  @media(min-width:901px){ .col{border-left:1px solid var(--line);padding-left:40px;} }
   @media(min-width:901px) and (max-width:1300px){ .stage img{object-fit:contain;} }
   @media(max-width:900px){
     .card{grid-template-columns:1fr;gap:18px;align-items:start;}
     .stage{aspect-ratio:4/3;max-height:56vh;}
-    .docs{margin:0;height:0;overflow:visible;position:relative;}
-    .docs-lb{display:none;}
-    .docs-row{position:absolute;right:0;top:16px;}
-    .doc-ic .ic-doc{display:none;} .doc-ic .ic-tools{display:block;}
-    .doc-ic{width:36px;height:36px;border-radius:10px;}
-    .doc-ic svg{width:19px;height:19px;}
-    .price-val{font-size:26px;}
+    /* строки «Цвета»/«Длина» — подпись над контролом */
+    .row{flex-direction:column;align-items:stretch;gap:8px;margin:20px 0 0;}
+    .opts.sws{justify-content:flex-start;}
+    .len{width:100%;}
+    .presets{justify-content:flex-start;}
+    .roundnote{text-align:left;}
+    .price-val{font-size:38px;}
     .stage img{padding:14px 46px;}
     .nav{width:34px;height:34px;} .nav.prev{left:6px;} .nav.next{right:6px;}
     .feat{padding:20px 18px;margin-top:20px;}
@@ -130,19 +130,18 @@
   <div class="info">
     <div class="price-val" id="pVal">—</div>
     <div class="price-break" id="pBreak">—</div>
-    <div class="docs">
-      <span class="docs-lb">Инструкция</span>
-      <div class="docs-row">
-        <a class="doc-ic" id="actPdf" title="Инструкция по укладке (PDF)" target="_blank" rel="noopener"><svg class="ic-doc" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M18 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><svg class="ic-tools" viewBox="0 0 16 16"><path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.365-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814z"/></svg></a>
-      </div>
+    <button class="cart" id="cartBtn">Добавить в корзину</button>
+    <div class="row">
+      <span class="lab">Цвета</span>
+      <div class="opts sws" id="sw"></div>
     </div>
-    <div class="lab">Цвет</div>
-    <div class="opts sws" id="sw"></div>
-    <div class="lab">Длина дорожки</div>
-    <div class="len">
-      <button class="step" id="minus" aria-label="Убрать секцию">−</button>
-      <div class="field"><input id="lenInput" type="text" inputmode="decimal" autocomplete="off" value=""><span class="unit">м</span></div>
-      <button class="step" id="plus" aria-label="Добавить секцию">+</button>
+    <div class="row">
+      <span class="lab">Длина дорожки</span>
+      <div class="len">
+        <button class="step" id="minus" aria-label="Убрать секцию">−</button>
+        <div class="field"><input id="lenInput" type="text" inputmode="decimal" autocomplete="off" value=""><span class="unit">м</span></div>
+        <button class="step" id="plus" aria-label="Добавить секцию">+</button>
+      </div>
     </div>
     <div class="presets" id="presets"></div>
     <div class="roundnote" id="roundnote"></div>
@@ -153,9 +152,11 @@
       <div class="m acc"><div class="k">Секций</div><div class="v" id="mSec">—</div></div>
     </div>
     <div class="aux" id="aux">—</div>
-    <p class="hint">Длина дорожки не ограничена — набирается из секций 500×500 мм. Нужен особый размер или раскладка — <b>обратитесь к менеджеру компании</b>.</p>
-    <a class="cfg-link" id="cfgLink">Отлично работает в композиции с модульными грядками АСТРА — единый материал, единый цвет ↓</a>
-    <button class="cart" id="cartBtn">Добавить в корзину</button>
+    <p class="hint">Длина дорожки не ограничена — наборы стыкуются из секций 500×500 мм. Нужен особый размер или раскладка — <b>обратитесь к менеджеру компании</b>.</p>
+    <div class="links">
+      <a class="cfg-link" id="cfgLink">Отлично работает в комбинации с модульными грядками АСТРА — единый материал, единый цвет ↗</a>
+      <a class="doc-link" id="actPdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M18 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span>Инструкция по укладке (PDF)</span></a>
+    </div>
   </div>
   <div class="feat">
   <div class="feat-grid">
