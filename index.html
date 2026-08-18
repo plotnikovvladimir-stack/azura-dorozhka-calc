@@ -291,15 +291,21 @@ COLORS.forEach(c=>{const b=document.createElement('button');b.className='sw';b.d
 function inIframe(){try{return window.self!==window.top;}catch(e){return true;}}
 function cartProduct(){
   // Единица товара в корзине = СЕКЦИЯ. quantity = число секций, price = цена секции.
-  // Так Tilda нативно показывает «N шт × цена» — количество и цвет видны явно.
+  // Так Tilda нативно показывает «N шт × цена». Пояснение единицы «1 шт = 1 секция = 0,5 м»
+  // кладём в options — это ИНВАРИАНТ (не «замерзает» при изменении количества в корзине).
   const n=sections();
-  const factLen=num(n*CFG.sectionLen/1000);
+  const secM=num(CFG.sectionLen/1000);                 // 0,5 — длина одной секции, м
+  const secSize=CFG.sectionWidth+'×'+CFG.sectionLen+'×'+CFG.thickness+' мм';
   const name='Садовая дорожка АЗУРА — '+colorName();
   return {
     uid:'azura-'+color, id:'azura-'+color, name:name,
     price:priceEach(), quantity:n, img:imgSrc(color,0), url:CFG.productUrl||location.href,
-    option:[{option:'Цвет',variant:colorName()},{option:'Секция',variant:'500×500×28 мм'}],
-    descr:'Длина дорожки '+factLen+' м = '+n+' секц.'+(color==='beige'?' · бежевый +15%':'')
+    options:[
+      {option:'Единица',variant:'1 шт = 1 секция = '+secM+' м'},
+      {option:'Цвет',variant:colorName()},
+      {option:'Размер секции',variant:secSize}
+    ],
+    descr:'Количество указано в секциях. 1 секция = '+secM+' м ('+secSize+').'+(color==='beige'?' Бежевый +15%.':'')
   };
 }
 function addToCart(){
