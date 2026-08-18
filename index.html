@@ -300,8 +300,7 @@ function cartProduct(){
   const name='Садовая дорожка АЗУРА '+factLen+' м ('+n+' секц.) — '+colorName();
   return {
     uid:'azura-'+color+'-'+n, id:'azura-'+color+'-'+n, name:name,
-    price:n*priceEach(), quantity:1, img:imgSrc(color,0), url:CFG.productUrl||location.href,
-    options:[{option:'Размер секции',variant:secSize}],
+    price:n*priceEach(), quantity:1, img:CFG.imgBase+color+'/cart.webp', url:CFG.productUrl||location.href,
     descr:'Дорожка '+factLen+' м = '+n+' секц., '+colorName()+', '+secSize
   };
 }
