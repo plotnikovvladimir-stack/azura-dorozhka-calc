@@ -45,7 +45,7 @@
   .cart:hover{background:var(--btn-d);}
   .cart:active{transform:scale(.995);}
   .cart:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
-  /* строки «Цвета» / «Длина дорожки» — та же 4-колоночная сетка, что и метрики ниже:
+  /* строки «Цвет» / «Длина дорожки» — та же 4-колоночная сетка, что и метрики ниже:
      подпись над колонкой «Длина», контрол над «Ширина»+«Толщина» (2-3), 4-я колонка пустая */
   .row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:center;margin:22px 0 0;}
   .lab{grid-column:1;font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;line-height:1.25;}
@@ -95,7 +95,7 @@
   @media(max-width:900px){
     .card{grid-template-columns:1fr;gap:18px;align-items:start;}
     .stage{aspect-ratio:4/3;max-height:56vh;}
-    /* строки «Цвета»/«Длина» — подпись над контролом (сетка сбрасывается во флекс-столбик) */
+    /* строки «Цвет»/«Длина» — подпись над контролом (сетка сбрасывается во флекс-столбик) */
     .row{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:20px 0 0;}
     .lab{grid-column:auto;}
     .opts.sws{grid-column:auto;justify-content:flex-start;}
@@ -129,7 +129,7 @@
     <div class="price-val" id="pVal">—</div>
     <div class="price-break" id="pBreak">—</div>
     <div class="row">
-      <span class="lab">Цвета</span>
+      <span class="lab">Цвет</span>
       <div class="opts sws" id="sw"></div>
     </div>
     <div class="row">
